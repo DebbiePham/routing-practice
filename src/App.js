@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route, Switch } from "react-router-dom";
+import Home from './components/Home';
+import NumberPage from './components/NumberPage';
+import WordPage from './components/WordPage';
+import ColoredWordPage from './components/ColoredWordPage';
+
+
+//Remember, we can write these functional components in their own files 
+//to be exported and imported to the App component.
+//We've combined them here to simplify our example.
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/:number" element={<NumberPage />} />
+        <Route path="/:word" element={<WordPage />} />
+        <Route path="/:word/:color/:bgColor" element={< ColoredWordPage/>} />
+    </Routes>
   );
 }
 
